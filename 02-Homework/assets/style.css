@@ -14,6 +14,27 @@ html, body {
 .card {
     opacity: 80%;
 }
+.uv {
+    display: inline-block;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: .25rem;
+}
+.uv-low {
+    background-color: green;
+    
+}
+
+.uv-med {
+    background-color: yellow;
+    color: darkslategrey;
+}
+
+.uv-high {
+    background-color: red;
+}
 
 /* universal navbar styles */
 .navbar {

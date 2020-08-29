@@ -1,37 +1,50 @@
-// VARIABLES
+// Universal Variables
 const APIKey = "4616aadf95db5359b2e900bcbd6b5d46";
-const citySearch = "American Fork"
-const queryURL = "https://api.openweathermap.org/data/2.5/weather?" + "q=" + citySearch + "&appid=" + APIKey;
+const citySearch = "london"
+const latLonURL = "https://api.openweathermap.org/data/2.5/weather?" + "q=" + citySearch + "&appid=" + APIKey;
 
-
+// ajax call to get longitude and lattitude to use one call api
 $.ajax({
-    url: queryURL,
-    method: "GET"
+    url: latLonURL,
+    method:"GET"
 }).then(function(response) {
-    // time conversion for unix time
     const unixDateTime = (response.dt);
     const dateObject = new Date(unixDateTime * 1000);
     const date = ("(" + (dateObject.getMonth() + 1) + "/" + dateObject.getDate() + "/" + dateObject.getFullYear() + ")");
-    const weatherImg = ("http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
-    const tempF = ((response.main.temp - 273.15) * 1.80 + 32);
-    const humidity = (response.main.humidity);
-    const windSpeed = (response.wind.speed);
-    console.log(date);
-    console.log(queryURL);
-    console.log(response);
-    console.log(response.name);
     $(".current-city-info").text(response.name + " " + date);
-    $(".current-city-info").append("<img class='weather-img' src=" + weatherImg + ">");
-    $(".current-temp").text("Temperature: " + Math.floor(tempF) + "*");
-    $(".current-humidity").text("Humidity: " + Math.floor(humidity) + "%");
-    $(".current-wind").text("Wind Speed: " + Math.floor(windSpeed) + " MPH");
-    console.log(tempF)
+    // stores lat and lon so that we can query the onecall api for the rest of the info
+    const lat = (response.coord.lat);
+    const lon = (response.coord.lon);
+    const dataURL = "https://api.openweathermap.org/data/2.5/onecall?" + "lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+    // ajax call to get the remaining data to populate cards
+    $.ajax({
+        url: dataURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
 
-    console.log(response.main.humidity);
-    console.log(response.wind.speed);
+        const currentWeatherImg = ("http://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png");
+        const currentTempF = ((response.current.temp - 273.15) * 1.80 + 32);
+        const currentHumidity = (response.current.humidity);
+        const currentWindSpeed = (response.current.wind_speed);
+        const UVIndex = parseInt(response.current.uvi);
+        
+        $(".current-city-info").append("<img class='weather-img' src=" + currentWeatherImg + ">");
+        $(".current-temp").text("Temperature: " + Math.floor(currentTempF) + "*");
+        $(".current-humidity").text("Humidity: " + Math.floor(currentHumidity) + "%");
+        $(".current-wind").text("Wind Speed: " + Math.floor(currentWindSpeed) + " MPH");
 
-    console.log(response.weather[0].icon)
-})
+        console.log(UVIndex)
+        
+        if (UVIndex < 3) {
+            $(".uv-index").html("<h6 class='uv-index card-subtitle text-muted'>UV Index: <span class='uv-low uv'>" + UVIndex + "</span></h6>");
+        } else if (UVIndex >= 3 && UVIndex < 6) {
+            $(".uv-index").html("<h6 class='uv-index card-subtitle text-muted'>UV Index: <span class='uv-med uv'>" + UVIndex + "</span></h6>");
+        } else if (UVIndex >= 6) {
+            $(".uv-index").html("<h6 class='uv-index card-subtitle text-muted'>UV Index: <span class='uv-high uv'>" + UVIndex + "</span></h6>");
+        }
+    })
+});
 
 // LEFT NAVBAR FUNCTIONALITY
 
