@@ -13,30 +13,10 @@ html, body {
 }
 .card {
     opacity: 80%;
+    margin: 0;
+    padding: 0;
 }
-.uv {
-    display: inline-block;
-    color: white;
-    padding: 5px 20px;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: .25rem;
-}
-.uv-low {
-    background-color: green;
-    
-}
-
-.uv-med {
-    background-color: yellow;
-    color: darkslategrey;
-}
-
-.uv-high {
-    background-color: red;
-}
-
-/* universal navbar styles */
+ /* header styles */
 .navbar {
     opacity: 90%;
     color: #FFF9F5;
@@ -79,8 +59,18 @@ h2 {
     justify-content: space-between;
 }
 
+.card-body {
+    padding: 20px 10px 10px 10px;
+}
+
+.forecast {
+    display: flex;
+    align-items: center;
+}
+
 h5 {
-    font-size: 1.5em;
+    font-size: 1em;
+    padding-bottom: 15px;
 }
 
 h5#five-day-header {
@@ -90,6 +80,27 @@ h5#five-day-header {
 h6 {
     padding-bottom: 20px;
 }
+
+.uv {
+    display: inline-block;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: .25rem;
+}
+.uv-low {
+    background-color: green;
+    
+}
+.uv-med {
+    background-color: yellow;
+    color: darkslategrey;
+}
+.uv-high {
+    background-color: red;
+}
+/* universal
 
 /* medium screen */
 @media (max-width: 1200px) {
