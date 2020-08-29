@@ -1,0 +1,99 @@
+/* universal page styles */
+html, body {
+    margin: 0;
+    height: 100%;
+    background-image: url("./images/pexels-pixabay-531972.jpg");
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    letter-spacing: 2px;
+    font-family: 'Tajawal', sans-serif;
+    color: #101013;
+}
+.card {
+    opacity: 80%;
+}
+
+/* universal navbar styles */
+.navbar {
+    opacity: 90%;
+    color: #FFF9F5;
+    background-color: #5D80FF;
+}
+#prev-cities-searched {
+    margin-top: 20px;
+}
+
+/* left nav styles */
+#left-nav {
+    float: left;
+    background-color: rgba(246, 248, 255, 0.5);
+}
+h2 {
+    font-size: 1.25em;
+}
+.form-control {
+    width: 85%!important;
+}
+.btn {
+    width: 15%!important;
+}
+
+/* right styles */
+#main-content {
+    height: 100%;
+    float: right;
+}
+
+#main-card {
+    width: 100%;
+}
+
+#city-forecast-today, #five-day-header, #five-day-forecast {
+    display: flex;
+    justify-content: space-between;
+}
+
+h5 {
+    font-size: 1.5em;
+}
+
+h5#five-day-header {
+    padding: 30px;
+}
+
+h6 {
+    padding-top: 20px;
+}
+
+/* medium screen */
+@media (max-width: 1200px) {
+    /* left styles */
+    h2 {
+        font-size: 1em;
+    }
+}
+    
+/* small screen */
+@media (max-width: 768px) {
+    /* left styles */
+    h2 {
+        font-size: .75em;
+    }
+    .left-nav {
+        padding: 5px;
+    }
+    .fa-search {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 575px) {
+    /* left styles */
+    h2 {
+        font-size: .6em;
+    }
+}
+
+
