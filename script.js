@@ -25,7 +25,7 @@ let humidity;
 let cities = [];
 popPastCities();
 // creates html elements for the past cities that have been searched
-function renderCities() {
+function renderCities(response) {
 	let listGroup = $(".prev-cities-list")[0];
 	listGroup.innerHTML = "";
 	for(let i = 0; i < cities.length; i++) {
@@ -35,6 +35,8 @@ function renderCities() {
 		li.addClass("prev-searched list-group-item");
 		$(".prev-cities-list").append(li);
 	}
+	citySearch = cities[0];
+	APICalls();
 }
 // Populates the li elements with past cities
 function popPastCities() {
