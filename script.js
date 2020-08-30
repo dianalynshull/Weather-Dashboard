@@ -121,7 +121,7 @@ function populateFiveDay(response) {
 		humidity = (response.daily[i].humidity);
 		// creating/updating html elements with variable data   
 		$(".date-" + [i]).text(forecastDate);
-		$(".date-" + [i]).append("<img class='weather-img' src=" + weatherImg + ">");
+		$(".date-" + [i]).append("<img class='weather-img-forecast' src=" + weatherImg + ">");
 		$(".temp-" + [i]).text("Temp: " + Math.floor(temp) + "*");
 		$(".humidity-" + [i]).text("Humidity: " + Math.floor(humidity) + "%");
 	}
@@ -155,6 +155,7 @@ $(".search-city").on("click", function() {
 	citySearch = $(".user-input").val();
 	APICalls(); 
 });
+// click listener to search past city if clicked
 $(".list-group-item").on("click", function() {
 	citySearch = this.textContent;
 	APICalls();
