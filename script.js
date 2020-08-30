@@ -78,12 +78,6 @@ function clearError() {
     let errorUl = $(".error-message")[0];
 	errorUl.innerHTML = "";
 }
-// click listener to add citySearch value
-$(".search-city").on("click", function() {
-    event.preventDefault();
-	citySearch = $(".user-input").val();
-	APICalls(); 
-});
 // Function to gather latitude and longitude to request data from oneCall API
 function latLonFunction(response) {
 	unixDateTime = (response.dt);
@@ -155,3 +149,13 @@ function APICalls() {
         });
 	});
 }
+// click listener to add citySearch value
+$(".search-city").on("click", function() {
+    event.preventDefault();
+	citySearch = $(".user-input").val();
+	APICalls(); 
+});
+$(".list-group-item").on("click", function() {
+	citySearch = this.textContent;
+	APICalls();
+})
