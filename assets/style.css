@@ -43,6 +43,10 @@ h2 {
 .btn {
     width: 15%!important;
 }
+.error {
+    background-color: red;
+    color: white;
+}
 
 /* right styles */
 #main-content {
