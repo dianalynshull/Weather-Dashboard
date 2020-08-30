@@ -20,11 +20,52 @@ let forecastDate;
 let weatherImg;
 let temp;
 let humidity;
+// Local Storage Variable
+let cities = [];
+
+popPastCities();
+
+function renderCities() {
+    let listGroup = $(".list-group")[0];
+    listGroup.innerHTML = "";
+
+    for (let i = 0; i < cities.length; i++) {
+        let city = cities[i];
+        let li = $("<li></li>");
+        li.text(city);
+        li.addClass("prev-searched list-group-item");
+        $(".list-group").append(li);
+    }
+}
+
+// Populates the li elements with past cities
+function popPastCities() {
+    let storedCities = JSON.parse(localStorage.getItem("cities"));
+    if (storedCities !== null) {
+        cities = storedCities;
+    }
+    renderCities();
+
+}
+
+// Stores searched cities into local storage
+function storeCities() {
+    localStorage.setItem("cities", JSON.stringify(cities));    
+}
 
 // click listener to add citySearch value
 $(".search-city").on("click", function() {
     event.preventDefault();
     citySearch = $(".user-input").val();
+    let cityText = citySearch;
+    if (cityText === "") {
+        return;
+    }
+    cities.push("" + cityText + "");
+    citySearch.value = "";
+
+    storeCities();
+    renderCities();
     APICalls();
 });
 
