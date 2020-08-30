@@ -1,93 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <script src="https://kit.fontawesome.com/adbcedec8f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Weather Dashboard</title>
+      <script src="https://kit.fontawesome.com/adbcedec8f.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="./assets/style.css">
+   </head>
+   <body>
+      <header>
+         <nav class="navbar">
             <h1 class="navbar-brand mx-auto">Weather Dashboard</h1>
-        </nav>
-    </header>
-    
-    <div class="left-nav col-3 p-3 h-100">
-        <div class="city-search">
+         </nav>
+      </header>
+      <div class="left-nav col-3 p-3 h-100">
+         <div class="city-search">
             <h2>City Search</h2>
             <form class="city-search form-inline">
-                <input class="user-input form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="search-city btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
+               <input class="user-input form-control" type="search" placeholder="Search" aria-label="Search">
+               <button class="search-city btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="card">
-                <ul class="list-group error-message list-group-flush"></ul>
+               <ul class="list-group error-message list-group-flush"></ul>
             </div>
             <div class="prev-cities-searched card">
-                <ul class="list-group prev-cities-list list-group-flush"></ul>
+               <ul class="list-group prev-cities-list list-group-flush"></ul>
             </div>
-        </div>
-    </div>
-    
-    <div class="main-content col-9 p-3">
-        <div class="city-forecast-today">
+         </div>
+      </div>
+      <div class="main-content col-9 p-3">
+         <div class="city-forecast-today">
             <div class="forecast-today-content card test w-100">
-                <div class="main-card card-body w-100">
+               <div class="main-card card-body w-100">
                   <h2 class="current-city-info card-title m-0">City: </h2>
                   <h6 class="current-temp card-subtitle text-muted"></h6>
                   <h6 class="current-humidity card-subtitle text-muted">Humidity: </h6>
                   <h6 class="current-wind card-subtitle text-muted">Wind Speed: </h6>
                   <h6 class="uv-index card-subtitle text-muted">UV Index: </h6>
-                </div>
+               </div>
             </div>
-        </div>
-        <h2 class="five-day-header">5-Day Forecast</h2>
-        <div class="five-day-forecast">
+         </div>
+         <h2 class="five-day-header">5-Day Forecast</h2>
+         <div class="five-day-forecast">
             <div class="forecast card">
-                <div class="forecast-0 card-body">
+               <div class="forecast-0 card-body">
                   <h3 class="date-0 card-title">Date for each day</h3>
                   <h6 class="temp-0 card-subtitle text-muted">Temp: </h6>
                   <h6 class="humidity-0 card-subtitle text-muted">Humidity: </h6>
-                </div>
+               </div>
             </div>
             <div class="forecast card">
-                <div class="forecast-1 card-body">
+               <div class="forecast-1 card-body">
                   <h3 class="date-1 card-title">Date for each day</h3>
                   <h6 class="temp-1 card-subtitle text-muted">Temp: </h6>
                   <h6 class="humidity-1 card-subtitle text-muted">Humidity: </h6>
-                </div>
+               </div>
             </div>
             <div class="forecast card">
-                <div class="forecast-2 card-body justify-content-center">
+               <div class="forecast-2 card-body justify-content-center">
                   <h3 class="date-2 card-title">Date for each day</h3>
                   <h6 class="temp-2 card-subtitle text-muted">Temp: </h6>
                   <h6 class="humidity-2 card-subtitle text-muted">Humidity: </h6>
-                </div>
+               </div>
             </div>
             <div class="forecast card">
-                <div class="forecast-3 card-body">
+               <div class="forecast-3 card-body">
                   <h3 class="date-3 card-title">Date for each day</h3>
                   <h6 class="temp-3 card-subtitle text-muted">Temp: </h6>
                   <h6 class="humidity-3 card-subtitle text-muted">Humidity: </h6>
-                </div>
+               </div>
             </div>
             <div class="forecast card">
-                <div class="forecast-4 card-body">
+               <div class="forecast-4 card-body">
                   <h3 class="date-4 card-title">Date for each day</h3>
                   <h6 class="temp-4 card-subtitle text-muted">Temp: </h6>
                   <h6 class="humidity-4 card-subtitle text-muted">Humidity: </h6>
-                </div>
+               </div>
             </div>
-        </div>
-    </div>
-    
-    
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<script src="./script.js"></script>
-</body>
+         </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <script src="./script.js"></script>
+   </body>
 </html>

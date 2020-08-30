@@ -1,7 +1,6 @@
 // Universal Variables
 const APIKey = "4616aadf95db5359b2e900bcbd6b5d46";
 let citySearch;
-let successOrFailure;
 // Variables for latLonFunction
 let unixDateTime;
 let dateObject;
@@ -25,7 +24,7 @@ let humidity;
 let cities = [];
 popPastCities();
 // creates html elements for the past cities that have been searched
-function renderCities(response) {
+function renderCities() {
 	let listGroup = $(".prev-cities-list")[0];
 	listGroup.innerHTML = "";
 	for(let i = 0; i < cities.length; i++) {
@@ -43,8 +42,8 @@ function popPastCities() {
 	let storedCities = JSON.parse(localStorage.getItem("cities"));
 	if(storedCities !== null) {
 		cities = storedCities;
-    }
-    renderCities();
+	}
+	renderCities();
 }
 // Stores searched cities into local storage
 function storeCities() {
@@ -52,11 +51,10 @@ function storeCities() {
 }
 // Function if entered input is not valid
 function isValidInput() {
-	for (let i = 0; i <= cities.length; i++) {
+	for(let i = 0; i <= cities.length; i++) {
 		if(citySearch === "") {
 			return;
-		} 
-		else if (citySearch === cities[i]) {
+		} else if(citySearch === cities[i]) {
 			$(".user-input").val("");
 			return;
 		}
@@ -66,16 +64,17 @@ function isValidInput() {
 	storeCities();
 	renderCities();
 }
+
 function notValidInput() {
-    $(".user-input").val("");
-    let error = $("<li></li>");
-    error.text("Please Enter A Valid City");
-    error.addClass("error list-group-item");
-    $(".error-message").append(error); 
+	$(".user-input").val("");
+	let error = $("<li></li>");
+	error.text("Please Enter A Valid City");
+	error.addClass("error list-group-item");
+	$(".error-message").append(error);
 }
 // clears the error after timeout
 function clearError() {
-    let errorUl = $(".error-message")[0];
+	let errorUl = $(".error-message")[0];
 	errorUl.innerHTML = "";
 }
 // Function to gather latitude and longitude to request data from oneCall API
@@ -86,7 +85,7 @@ function latLonFunction(response) {
 	$(".current-city-info").text(response.name + " " + date);
 	// stores lat and lon so that we can query the onecall api for the rest of the info
 	lat = (response.coord.lat);
-    lon = (response.coord.lon);
+	lon = (response.coord.lon);
 }
 // Function to gather data to populate in current weather and forecast
 function populateMainData(response) {
@@ -146,17 +145,17 @@ function APICalls() {
 			isValidInput();
 			populateMainData(response);
 			populateFiveDay(response);
-        });
+		});
 	});
 }
 // click listener to add citySearch value
 $(".search-city").on("click", function() {
-    event.preventDefault();
+	event.preventDefault();
 	citySearch = $(".user-input").val();
-	APICalls(); 
+	APICalls();
 });
 // click listener to search past city if clicked
 $(".list-group-item").on("click", function() {
 	citySearch = this.textContent;
 	APICalls();
-})
+});
